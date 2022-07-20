@@ -1,0 +1,18 @@
+#!/bin/bash
+# Step0: 
+unzpi gromacs2020-ramd-portable.zip
+# step1: you may also not need to run this commands here before you test your $path_to_this_package/bin/gmx_mpi, if it's not work then run the command below~
+cd gromacs2020-ramd-portable/lib && rm libgromacs_mpi.so.5 && ln -s libgromacs_mpi.so.5.0.0 libgromacs_mpi.so.5 && rm libgromacs_mpi.so && ln -s libgromacs_mpi.so.5 libgromacs_mpi.so && rm libgmxapi_mpi.so.0 && ln -s libgmxapi_mpi.so.0.1.0 libgmxapi_mpi.so.0 && rm libgmxapi_mpi.so && ln -s libgmxapi_mpi.so.0 libgmxapi_mpi.so
+# Step2: modifie the gromacs_ramd.mdp file
+tc_grps                  = Protein_INH Water_and_ions	; change Protein_INH into Protein_YourLigand, e.g Protein_MOL
+ramd-seed                = 98XX  			; change XX into any number, e.g 1, 2, 3... 
+ramd-group1-ligand       = INH				; change INH into your ligand name, e.g MOL, UNK
+ramd-group1-force        = 585 ; = 14kcal/mol A		; if the residence time less than 100ps then reduce the number
+# Step3: prepare index.ndx, though you should already have it, e.g printf "1 | 13\n q\n" | gmx make_ndx -f md.gro 
+# Step4: generate md_ramd.tpr(you need to have lig_GMX.itp; topol.top; md.tpr; md.cpt; index.ndx in your folder): $wher_you_put_the_gromacs_ramd/bin/gmx_mpi grompp -f gromacs_ramd.mdp -c md.tpr -t md.cpt -n index.ndx -o md_ramd.tpr
+# Step5: put gromacs2020-RAMD portbale package, rocket_gmx_ramd_template.sh and md_ramd.tpr in the same folder
+# Step6: sbatch rocket_gmx_ramd_template.sh
+
+# Test: there is a folder named tauRAMD_test, it include the complex which has already dissasociation during the conventional MD simulation, so it only take less 50 steps to finish the run, which you can run it as a small taste!
+
+

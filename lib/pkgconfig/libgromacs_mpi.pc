@@ -1,0 +1,11 @@
+libdir=/home/b8048283/workspace/gromacs2020-ramd-portable/lib
+
+Name: libgromacs_mpi
+Description: Gromacs library
+URL: http://www.gromacs.org
+Version: 2020.5-dev
+Requires:  
+Libs.private: -lpthread -ldl 
+Libs: -L${libdir} -lgromacs_mpi  -lm
+Cflags:  -I/home/b8048283/workspace/gromacs2020-ramd-portable/include -DGMX_DOUBLE=0 -fopenmp
+

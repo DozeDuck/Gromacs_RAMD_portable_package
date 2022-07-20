@@ -1,0 +1,32 @@
+# This file was created Tue Jul 19 02:29:29 2022
+# Created by:
+#               :-) GROMACS - gmx mdrun, 2020.5-dev-UNCHECKED (-:
+# 
+# Executable:   /home/b8048283/workspace/gromacs2020_ramd/bin/gmx
+# Data prefix:  /home/b8048283/workspace/gromacs2020_ramd
+# Working dir:  /media/b8048283/Elements/6tb/lab/Joao/Ahr-Hsp90-Ruidi/TCDD_M348in/tauRAMD_1/tauRAMD_1_1/prod
+# Command line:
+#   gmx mdrun -deffnm md_ramd -v -ntmpi 1 -ntomp 7
+# gmx mdrun is part of G R O M A C S:
+#
+# Glycine aRginine prOline Methionine Alanine Cystine Serine
+#
+@    title "Pull COM"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "Position (nm)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "1"
+@ s1 legend "2"
+@ s2 legend "3"
+0.0000	2.27567	-1.72056	-3.18332
+0.0200	2.2751	-1.71985	-3.18174
+0.0400	2.27477	-1.71916	-3.18092
+0.0600	2.27473	-1.71861	-3.18086
+0.0800	2.27514	-1.7181	-3.18151
+0.1000	2.27606	-1.71759	-3.18291
