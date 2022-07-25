@@ -9,7 +9,7 @@ ramd-seed                = 98XX  			; change XX into any number, e.g 1, 2, 3...
 ramd-group1-ligand       = INH				; change INH into your ligand name, e.g MOL, UNK
 ramd-group1-force        = 585 ; = 14kcal/mol A		; if the residence time less than 100ps then reduce the number
 # Step3: prepare index.ndx, though you should already have it, e.g printf "1 | 13\n q\n" | gmx make_ndx -f md.gro 
-# Step4: generate md_ramd.tpr(you need to have lig_GMX.itp; topol.top; md.tpr; md.cpt; index.ndx in your folder): $wher_you_put_the_gromacs_ramd/bin/gmx_mpi grompp -f gromacs_ramd.mdp -c md.tpr -t md.cpt -n index.ndx -o md_ramd.tpr
+# Step4: generate md_ramd.tpr(you need to have lig_GMX.itp; topol.top; md.tpr; md.cpt; index.ndx in your folder): $wher_you_put_the_gromacs_ramd/bin/gmx_mpi grompp -f gromacs_ramd.mdp -c md.gro -p topol.top -t md.cpt -n index.ndx -o md_ramd.tpr
 # Step5: put gromacs2020-RAMD portbale package, rocket_gmx_ramd_template.sh and md_ramd.tpr in the same folder
 # Step6: sbatch rocket_gmx_ramd_template.sh
 
