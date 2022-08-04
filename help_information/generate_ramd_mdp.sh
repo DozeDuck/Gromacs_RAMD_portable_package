@@ -1,15 +1,16 @@
 #!/bin/bash
-# Usage: ./generate_ramd_mdp.sh <number_of_ramd_replicas> <number_of_ramd_forces>
-
+# Usage: ./generate_ramd_mdp.sh <number_of_ramd_replicas> <number_of_ramd_forces> <name_of_ligand_in_index>
+### e.g: ./generate_ramd_mdp.sh 15 200 MOL
 ###
 ### generate_ramd_mdp.sh - generate the gromacs_ramd.mdp files
 ###
 ### Usage:
-###      generate_ramd_mdp.sh <number_of_ramd_replicas> <number_of_ramd_forces>
+###      generate_ramd_mdp.sh <number_of_ramd_replicas> <number_of_ramd_forces> <name_of_ligand_in_index>
 ###
 ### Options:
 ###     <number_of_ramd_replicas>		The gro file generated from gmx pdb2gmx
 ###     <number_of_ramd_forces>		The gro file generated from acpype
+###     <name_of_ligand_in_index>		The name of ligand which showed in the index.ndx
 ###     -h					Show this message
 
 help() {
